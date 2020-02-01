@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp"
+    android:gravity="center_horizontal"
+    tools:context=".Plots">
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        app:ms_arrowColor="#304FFE"
+        app:ms_arrowSize="16dp"
+        android:layout_gravity="center|top"
+        app:ms_floatingLabelColor="#a9a9a9"
+        app:ms_floatingLabelText="Choose the plot to display:"
+        app:ms_hint="Select"
+        app:ms_hintColor="#000000"
+        app:ms_multiline="true"
+        />
+
+    <ImageView
+        android:id="@+id/plot"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="199dp"
+        android:layout_gravity="center|bottom"
+        android:scaleType="fitXY" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:src="@drawable/ic_house"
+        app:maxImageSize="40dp"
+        app:fabSize="auto"
+        android:backgroundTint="#40C4FF"
+        app:rippleColor="#2962FF"
+        app:borderWidth="0dp"
+        />
+</FrameLayout>
