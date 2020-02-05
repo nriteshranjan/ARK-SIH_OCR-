@@ -16,18 +16,32 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".About" android:screenOrientation="portrait" android:parentActivityName=".Activity_2"/>
-        <activity android:name=".MyProfile" android:screenOrientation="portrait"  android:parentActivityName=".Activity_2"/>
-        <activity android:name=".Plots" android:screenOrientation="portrait"  android:parentActivityName=".Activity_2"/>
-        <activity android:name=".Activity_2" android:screenOrientation="portrait" />
-
-        <activity android:name=".Splash_Activity" android:theme="@style/Theme.Design.NoActionBar" android:screenOrientation="portrait">
+        <activity android:name=".LabResults"></activity>
+        <activity
+            android:name=".About"
+            android:parentActivityName=".Activity_2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MyProfile"
+            android:parentActivityName=".Activity_2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Plots"
+            android:parentActivityName=".Activity_2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity_2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Splash_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">

@@ -9,7 +9,8 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:animateLayoutChanges="true">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/uploadButton"
@@ -18,19 +19,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
-        android:background="#1DE9B6"
-        android:backgroundTint="#B2FF59"
+        android:background="#F06292"
+        android:backgroundTint="#F48FB1"
         android:padding="5dp"
         android:text="Upload Image"
+        android:textColor="#FFFFFF"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
         android:textStyle="bold"
         app:cornerRadius="10dp"
         app:icon="@drawable/upload"
         app:iconPadding="10dp"
-        app:iconTint="#536DFE"
+        app:iconTint="#EC407A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:rippleColor="#64DD17"
+        app:rippleColor="#6200EA"
         app:strokeColor="#536DFE"
         app:strokeWidth="2dp" />
 
@@ -42,10 +44,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
         android:background="#D500F9"
-        android:backgroundTint="#448AFF"
+        android:backgroundTint="#F48FB1"
         app:layout_constraintBaseline_toBaselineOf="@+id/uploadButton"
         android:padding="5dp"
         android:text="Email Report"
+        android:textColor="#FFFFFF"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
         android:textStyle="bold"
         app:cornerRadius="10dp"
@@ -61,8 +64,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="218dp"
-        android:layout_height="139dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_marginTop="20dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,15 +73,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uploadButton" />
 
-    <ImageView
-        android:id="@+id/result"
-        android:layout_width="300dp"
-        android:layout_height="280dp"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Result_Lab"
+        style="@style/TextAppearance.MaterialComponents.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:background="#304FFE"
+        android:backgroundTint="#FF4081"
+        android:padding="5dp"
+        android:text="Lab Result"
+        android:textColor="#FFFFFF"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/report"
+        app:iconSize="29dp"
+        app:iconPadding="10dp"
+        app:iconTint="#FCE4EC"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"
-        android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:rippleColor="#D81B60"
+        app:strokeColor="#536DFE"
+        app:strokeWidth="2dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
