@@ -11,7 +11,7 @@ import retrofit2.http.Part;
 
 public interface RetrofitClientInstance
 {
-    String BASE_URL = "http://192.168.135.149:5000" ;
+    String BASE_URL = "http://192.168.43.211:8000" ;
 
     @Multipart
     @POST("/ocr")

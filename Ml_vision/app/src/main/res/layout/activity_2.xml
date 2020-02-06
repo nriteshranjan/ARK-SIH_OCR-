@@ -7,99 +7,154 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer">
 
-<androidx.constraintlayout.widget.ConstraintLayout
+<FrameLayout
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:animateLayoutChanges="true">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/uploadButton"
-        style="@style/TextAppearance.MaterialComponents.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="8dp"
-        android:background="#F06292"
-        android:backgroundTint="#F48FB1"
-        android:padding="5dp"
-        android:text="Upload Image"
-        android:textColor="#FFFFFF"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-        android:textStyle="bold"
-        app:cornerRadius="10dp"
-        app:icon="@drawable/upload"
-        app:iconPadding="10dp"
-        app:iconTint="#EC407A"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:rippleColor="#6200EA"
-        app:strokeColor="#536DFE"
-        app:strokeWidth="2dp" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/sendEmail"
-        style="@style/TextAppearance.MaterialComponents.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
-        android:background="#D500F9"
-        android:backgroundTint="#F48FB1"
-        app:layout_constraintBaseline_toBaselineOf="@+id/uploadButton"
-        android:padding="5dp"
-        android:text="Email Report"
-        android:textColor="#FFFFFF"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-        android:textStyle="bold"
-        app:cornerRadius="10dp"
-        app:icon="@drawable/newsletter"
-        app:iconPadding="10dp"
-        app:iconTint="#EC407A"
-        app:layout_constraintLeft_toLeftOf="@+id/uploadButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:rippleColor="#6200EA"
-        app:strokeColor="#536DFE"
-        app:strokeWidth="2dp" />
-
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/background_vector"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:layout_marginTop="20dp"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uploadButton" />
+        android:layout_marginBottom="10dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/Result_Lab"
-        style="@style/TextAppearance.MaterialComponents.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
-        android:background="#304FFE"
-        android:backgroundTint="#FF4081"
-        android:padding="5dp"
-        android:text="Lab Result"
-        android:textColor="#FFFFFF"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-        android:textStyle="bold"
-        app:cornerRadius="10dp"
-        app:icon="@drawable/report"
-        app:iconSize="29dp"
-        app:iconPadding="10dp"
-        app:iconTint="#FCE4EC"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:rippleColor="#D81B60"
-        app:strokeColor="#536DFE"
-        app:strokeWidth="2dp" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/uploadButton"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            app:cardCornerRadius="10dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/upload"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Upload Lab Report"
+                    android:paddingStart="15dp"
+                    android:textSize="20sp"
+                    android:textColor="#000"
+                    android:gravity="center|start"/>
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/arrow_right"
+                    android:padding="20dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/emailButton"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/mail"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Send Email"
+                    android:textSize="20sp"
+                    android:paddingStart="15dp"
+                    android:textColor="#000"
+                    android:gravity="center|start"/>
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/arrow_right"
+                    android:padding="20dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Result_Lab"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/lab"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Lab Report"
+                    android:textSize="20sp"
+                    android:paddingStart="15dp"
+                    android:textColor="#000"
+                    android:gravity="center|start"/>
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/arrow_right"
+                    android:padding="20dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+
+</FrameLayout>
 
 
     <com.google.android.material.navigation.NavigationView

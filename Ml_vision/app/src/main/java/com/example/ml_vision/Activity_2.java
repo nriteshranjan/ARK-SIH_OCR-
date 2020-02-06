@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import android.Manifest;
 import android.content.Intent;
@@ -45,8 +46,7 @@ public class Activity_2 extends AppCompatActivity {
 
     private static final int IMAGE_PICK_CODE = 1000;
     private static final int PERMISSION_CODE = 1001;
-    ImageView imageView,image_r;
-    Button upload, email, labReport;
+    CardView uploadButton, emailButton, Result_Lab;
     Uri imageUri = null;
     File attachment;
     private ActionBarDrawerToggle actionBarDrawerToggle;
@@ -61,19 +61,18 @@ public class Activity_2 extends AppCompatActivity {
         setTitle("Dashboard");
         setContentView(R.layout.activity_2);
 
-        imageView = findViewById(R.id.imageView);
-        upload = findViewById(R.id.uploadButton);
-        email = findViewById(R.id.sendEmail);
-        labReport = findViewById(R.id.Result_Lab);
-        labReport.setVisibility(View.INVISIBLE);
+        uploadButton = findViewById(R.id.uploadButton);
+        emailButton = findViewById(R.id.emailButton);
+        Result_Lab = findViewById(R.id.Result_Lab);
 
-        labReport.setOnClickListener(v -> {
+
+        Result_Lab.setOnClickListener(v -> {
             Intent intent=new Intent(Activity_2.this,LabResults.class);
             startActivity(intent);
         });
 
 
-        email.setOnClickListener(v -> {
+        emailButton.setOnClickListener(v -> {
             final SharedPreferences mPreference= PreferenceManager.getDefaultSharedPreferences(getBaseContext());
             String va=(mPreference.getString("phoneKey", "xyz@gmail.com"));
             String recipientList = va;
@@ -87,7 +86,7 @@ public class Activity_2 extends AppCompatActivity {
             startActivity(Intent.createChooser(intent, "Choose an email client"));
         });
 
-        upload.setOnClickListener(v -> {
+        uploadButton.setOnClickListener(v -> {
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             {
                 if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED)
@@ -215,7 +214,6 @@ public class Activity_2 extends AppCompatActivity {
                 else System.out.println("Response Failed!");
                 //System.out.println(parameter.size()+ " "+ pResult.size());
                 Toast.makeText(Activity_2.this, "Successful!", Toast.LENGTH_SHORT).show();
-                labReport.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -233,7 +231,6 @@ public class Activity_2 extends AppCompatActivity {
     {
         if(resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE)
         {
-            imageView.setImageURI(data.getData());
             imageUri = data.getData();
             System.out.println("Path--->"+imageUri.toString());
             attachment = new File(getPath(imageUri));
