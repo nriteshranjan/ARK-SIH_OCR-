@@ -1,6 +1,8 @@
 package com.example.ml_vision;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
-import java.util.Properties;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
 {
@@ -44,8 +44,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         values = holder.values;
         attributes.setText(temp.first);
         values.setText(temp.second);
-        item_image.setImageResource(R.drawable.flask);
-
+        if(position == 0)
+        {
+            attributes.setTextColor(Color.BLACK);
+            values.setTextColor(Color.BLACK);
+            attributes.setTextSize(16f);
+            values.setTextSize(16f);
+            attributes.setTypeface(Typeface.DEFAULT_BOLD);
+        }
+        if(position == 0)
+            item_image.setImageResource(R.drawable.mixer);
+        else item_image.setImageResource(R.drawable.science);
     }
 
     @Override

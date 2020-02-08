@@ -15,8 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LabResults"></activity>
+        <activity android:name=".LabResults"
+            android:parentActivityName=".Activity_2">
+        </activity>
         <activity
             android:name=".About"
             android:parentActivityName=".Activity_2"
@@ -31,7 +34,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Activity_2"
-            android:theme="@style/HomeScreenStyle"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Splash_Activity"

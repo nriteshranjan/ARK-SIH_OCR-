@@ -31,20 +31,13 @@ public class Plots extends AppCompatActivity {
         setTitle("Plots");
         setContentView(R.layout.activity_plots);
         FloatingActionButton homeb = findViewById(R.id.home);
-        homeb.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                startActivity(new Intent(Plots.this, Activity_2.class));
-            }
-        });
+        homeb.setOnClickListener(v -> startActivity(new Intent(Plots.this, Activity_2.class)));
         imageView = findViewById(R.id.plot);
         listItems.add("Urea");
         listItems.add("Haemoglobin");
         listItems.add("Platelets");
         materialSpinner = findViewById(R.id.spinner);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,listItems);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, listItems);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         materialSpinner.setAdapter(adapter);
         materialSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

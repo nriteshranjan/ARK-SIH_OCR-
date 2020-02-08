@@ -19,13 +19,10 @@ public class Splash_Activity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_bkg);
         logo =findViewById(R.id.logo);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(Splash_Activity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(Splash_Activity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         },splashTimeOut);
         Animation animation = AnimationUtils.loadAnimation(this,R.anim.splash_anim);
         logo.startAnimation(animation);

@@ -7,9 +7,4 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="HomeScreenStyle" parent="AppTheme">
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
-
 </resources>

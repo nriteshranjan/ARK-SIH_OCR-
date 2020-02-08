@@ -23,6 +23,8 @@ import com.facebook.login.widget.LoginButton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity
 {
 
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity
         password = findViewById(R.id.editText2);
         loginButton = findViewById(R.id.login_button);
         callbackManager = CallbackManager.Factory.create();
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>()
         {

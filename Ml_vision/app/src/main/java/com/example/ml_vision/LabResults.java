@@ -25,6 +25,7 @@ public class LabResults extends AppCompatActivity
         RecyclerView.LayoutManager rvLiLayoutManager = layoutManager;
         recyclerView.setLayoutManager(rvLiLayoutManager);
         List<Pair<String, String>> list =new ArrayList<>();
+        list.add(new Pair<>("PARAMETERS", "VALUES"));
         for(int i=0;i<Activity_2.parameter.size();i++)
         {
             list.add(new Pair <> (Activity_2.parameter.get(i),Activity_2.pResult.get(i)));

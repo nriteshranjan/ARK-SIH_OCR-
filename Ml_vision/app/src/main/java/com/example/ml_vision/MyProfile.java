@@ -50,13 +50,14 @@ public class MyProfile extends AppCompatActivity
     public void save (View v)
     {
         String p = st_email.getText().toString();
-        if (p.isEmpty()) {
+        if (p.isEmpty())
+        {
             Toast.makeText(this, "Field can't be Empty", Toast.LENGTH_SHORT).show();
-            return;
+
         } else if (!Patterns.EMAIL_ADDRESS.matcher(p).matches())
         {
             Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
-            return;
+
         }
         else
             {

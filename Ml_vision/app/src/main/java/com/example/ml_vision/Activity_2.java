@@ -2,6 +2,7 @@ package com.example.ml_vision;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -60,10 +61,15 @@ public class Activity_2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle("Dashboard");
         setContentView(R.layout.activity_2);
+        ActionBar toolbar = getSupportActionBar();
+        assert toolbar != null;
+        toolbar.setElevation(0);
 
         uploadButton = findViewById(R.id.uploadButton);
         emailButton = findViewById(R.id.emailButton);
         Result_Lab = findViewById(R.id.Result_Lab);
+
+        Result_Lab.setVisibility(View.INVISIBLE);
 
 
         Result_Lab.setOnClickListener(v -> {
@@ -74,8 +80,7 @@ public class Activity_2 extends AppCompatActivity {
 
         emailButton.setOnClickListener(v -> {
             final SharedPreferences mPreference= PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-            String va=(mPreference.getString("phoneKey", "xyz@gmail.com"));
-            String recipientList = va;
+            String recipientList = (mPreference.getString("phoneKey", "xyz@gmail.com"));
             String[] recipients = recipientList.split(",");
             String subject ="Lab Reports";
             Intent intent = new Intent(Intent.ACTION_SEND);
@@ -112,45 +117,40 @@ public class Activity_2 extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final NavigationView nav_view=findViewById(R.id.nav_view);
-        nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
-        {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
+        nav_view.setNavigationItemSelectedListener(menuItem -> {
+            int id=menuItem.getItemId();
+
+            if(id==R.id.dashboard)
             {
-                int id=menuItem.getItemId();
-
-                if(id==R.id.dashboard)
-                {
-                    Intent intent = new Intent(Activity_2.this,Activity_2.class);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
-                }
-
-                else if(id==R.id.plots)
-                {
-                    Intent  intent = new Intent(Activity_2.this,Plots.class);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
-                }
-
-                else if(id==R.id.setting)
-                {
-                    Intent  intent = new Intent(Activity_2.this,MyProfile.class);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
-                }
-                else if(id==R.id.logout)
-                {
-                    startActivity(new Intent(Activity_2.this, MainActivity.class));
-                }
-                else if(id==R.id.about)
-                {
-                    Intent  intent = new Intent(Activity_2.this,About.class);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
-                }
-                return true;
+                Intent intent = new Intent(Activity_2.this,Activity_2.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
+
+            else if(id==R.id.plots)
+            {
+                Intent  intent = new Intent(Activity_2.this,Plots.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+            }
+
+            else if(id==R.id.setting)
+            {
+                Intent  intent = new Intent(Activity_2.this,MyProfile.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+            }
+            else if(id==R.id.logout)
+            {
+                startActivity(new Intent(Activity_2.this, MainActivity.class));
+            }
+            else if(id==R.id.about)
+            {
+                Intent  intent = new Intent(Activity_2.this,About.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+            }
+            return true;
         });
     }
 
@@ -205,6 +205,7 @@ public class Activity_2 extends AppCompatActivity {
         call.enqueue(new Callback<LabReport>() {
             @Override
             public void onResponse(Call<LabReport> call, Response<LabReport> response) {
+                Result_Lab.setVisibility(View.VISIBLE);
                 if(response.isSuccessful())
                 {
                     assert response.body() != null;
@@ -212,8 +213,8 @@ public class Activity_2 extends AppCompatActivity {
                     pResult = response.body().getValue();
                 }
                 else System.out.println("Response Failed!");
-                //System.out.println(parameter.size()+ " "+ pResult.size());
                 Toast.makeText(Activity_2.this, "Successful!", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -234,9 +235,7 @@ public class Activity_2 extends AppCompatActivity {
             imageUri = data.getData();
             System.out.println("Path--->"+imageUri.toString());
             attachment = new File(getPath(imageUri));
-            ///////////
             upload();
-            //////////
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
