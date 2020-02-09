@@ -1,6 +1,7 @@
 package com.example.ml_vision;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.Pair;
@@ -46,15 +47,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         values.setText(temp.second);
         if(position == 0)
         {
-            attributes.setTextColor(Color.BLACK);
-            values.setTextColor(Color.BLACK);
+            attributes.setTextColor(Color.WHITE);
+            values.setTextColor(Color.WHITE);
             attributes.setTextSize(16f);
             values.setTextSize(16f);
-            attributes.setTypeface(Typeface.DEFAULT_BOLD);
+            item_image.setColorFilter(Color.argb(255, 68, 138, 255));
         }
         if(position == 0)
-            item_image.setImageResource(R.drawable.mixer);
-        else item_image.setImageResource(R.drawable.science);
+            item_image.setImageResource(R.drawable.play);
+        else item_image.setImageResource(R.drawable.next);
     }
 
     @Override

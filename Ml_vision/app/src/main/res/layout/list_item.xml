@@ -1,23 +1,27 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="43dp"
     android:layout_margin="10dp"
+    android:backgroundTint="#263238"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="4dp"
+        >
         <ImageView
             android:id="@+id/item_image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/science"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/next"
             android:scaleType="fitXY"
             />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="4dp"
             android:orientation="horizontal"
             >
             <TextView
@@ -25,17 +29,20 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/attr"
                 android:layout_weight="1"
-                android:textSize="18sp"
-                android:gravity="center"/>
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                android:paddingStart="20dp"
+                android:gravity="start"/>
             <TextView
                 android:layout_width="200dp"
                 android:id="@+id/val"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
                 android:layout_weight="1"
                 android:layout_toRightOf="@id/attr"
                 android:textSize="11sp"
-                android:gravity="center"/>
+                android:textColor="#ECEFF1"
+                android:paddingStart="5dp"
+                android:gravity="start"/>
 
         </LinearLayout>
 
