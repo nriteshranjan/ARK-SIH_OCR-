@@ -48,7 +48,7 @@ public class Activity_2 extends AppCompatActivity {
     private static final int IMAGE_PICK_CODE = 1000;
     private static final int PERMISSION_CODE = 1001;
     CardView uploadButton, emailButton, Result_Lab;
-    Uri imageUri = null;
+    public static Uri imageUri = null;
     File attachment;
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
@@ -117,6 +117,7 @@ public class Activity_2 extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final NavigationView nav_view=findViewById(R.id.nav_view);
+        nav_view.setItemIconTintList(null);
         nav_view.setNavigationItemSelectedListener(menuItem -> {
             int id=menuItem.getItemId();
 
@@ -235,6 +236,7 @@ public class Activity_2 extends AppCompatActivity {
             imageUri = data.getData();
             System.out.println("Path--->"+imageUri.toString());
             attachment = new File(getPath(imageUri));
+
             upload();
         }
         super.onActivityResult(requestCode, resultCode, data);

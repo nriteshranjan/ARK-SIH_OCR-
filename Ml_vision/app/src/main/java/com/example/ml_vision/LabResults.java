@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Pair;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -30,9 +31,15 @@ public class LabResults extends AppCompatActivity
         {
             list.add(new Pair <> (Activity_2.parameter.get(i),Activity_2.pResult.get(i)));
         }
+        ImageView selectedImage = findViewById(R.id.selectedImage);
+        selectedImage.setImageURI(Activity_2.imageUri);
         RecyclerViewAdapter adapter =new RecyclerViewAdapter(this,list);
         recyclerView.setAdapter(adapter);
+    }
 
-
+    @Override
+    public void onBackPressed()
+    {
+        super.onResume();
     }
 }

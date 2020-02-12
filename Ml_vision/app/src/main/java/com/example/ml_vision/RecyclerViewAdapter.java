@@ -47,8 +47,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         values.setText(temp.second);
         if(position == 0)
         {
-            attributes.setTextColor(Color.WHITE);
-            values.setTextColor(Color.WHITE);
+            attributes.setTextColor(Color.parseColor("#FF5252"));
+            values.setTextColor(Color.parseColor("#FF5252"));
             attributes.setTextSize(16f);
             values.setTextSize(16f);
             item_image.setColorFilter(Color.argb(255, 68, 138, 255));

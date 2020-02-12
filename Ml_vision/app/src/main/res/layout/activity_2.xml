@@ -165,7 +165,7 @@
         android:layout_gravity="start"
         android:background="@color/white"
         app:itemTextColor="#616161"
-        app:itemIconTint="#64DD17"
+        app:itemIconTint="@color/white"
         app:menu="@menu/drawermenu">
     </com.google.android.material.navigation.NavigationView>
 
